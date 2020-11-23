@@ -55,4 +55,5 @@ Total_Accuracy :0.7881149537262543
 Total_Accuracy :0.806099151989563  
 
 ```
-python showplot.py 把python Classifier_2.py 运行结果（如上所示）以图表的形式展示出来。
+python showplot.py 把python Classifier_2.py 运行结果（如上所示）以图表的形式展示出来，如下图：
+![image](https://github.com/yajiewen/Datamining-works/blob/master/Figure_1.png)
