@@ -20,6 +20,18 @@ def get_data():
         print('0 每个样本长度{}\n1 每个样本长度{}\n3 每个样本长度{}\n'.format(len(data_dict['0'][15]),len(data_dict['1'][60]),len(data_dict['2'][1000])))
         return data_dict.copy()
     
+def get_test_2020():
+    test_list = []
+    with open('kddtest2020.txt','r') as test_l:
+        for line_ in test_l.readlines():
+            line_=line_.strip()
+            sample_list = line_.split('\t')
+            # print(sample_list)
+            test_list.append([float(num) for num in sample_list])
+    return test_list[:]
+
+
+    
 #WF ATTACK FEATURES===========================================================================================
 #client time span 平均数，最大最小值，标准差，75百分位数 （-1 减去+1）
 def client_to_server_time_features(time_list):

@@ -22,11 +22,12 @@ for sample_name in ['0','1','2']:
     for sample in data_list[sample_name]:
         sample_features = []
         #获得特征
-        sample_features.extend(client_to_server_time_features(sample[:]))
-        sample_features.extend(server_to_client_time_features(sample[:]))
-        sample_features.extend(client_to_client_time_features(sample[:]))
-        sample_features.extend(server_to_server_time_features(sample[:]))
-        sample_features.extend(packet_to_packet_time_features(sample[:]))
+        # sample_features.extend(client_to_server_time_features(sample[:]))
+        # sample_features.extend(server_to_client_time_features(sample[:]))
+        # sample_features.extend(client_to_client_time_features(sample[:]))
+        # sample_features.extend(server_to_server_time_features(sample[:]))
+        # sample_features.extend(packet_to_packet_time_features(sample[:]))
+        sample_features = sample #特征就是他自己
         if count_num < int(opts['train_num']):
             #保存训练特征和lables
             data_dict['train_features'].append(sample_features)
@@ -54,6 +55,14 @@ for Out_lable,In_lables in zip(Out_lables,data_dict['test_lables']):
     if Out_lable == In_lables:
         right_num+=1
 print('Accuracy :{}'.format(right_num/len(Out_lables)))
+
+# test_feature = get_test_2020()
+# test_lables1 = RFC.predict(test_feature)
+# with open('test_lables','w') as file_:
+#     for lable in test_lables1:
+#         file_.write(str(lable)+'\n') 
+# print(test_lables1)
+# print('共预测{}个样本'.format(len(test_lables1)))
 
 
 
